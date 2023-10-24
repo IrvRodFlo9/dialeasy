@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dialeasy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link href="build/css/app.css" rel="stylesheet" />
+    <link href="build/img/log.png" rel="shortcut icon" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Dialeasy</h1>
+      <p>Una solución fácil para los cálculos de diálisis</p>
+    </header>
+    <main>
+      <section class="container forms">
+        <form class="form-water form">
+          <div class="title">
+            <h2>Agua Ingerida</h2>
+            <h3>Vía Oral</h3>
+          </div>
+          <div class="btns-container">
+            <button class="btn">Agregar Ingesta</button>
+            <button type="submit" class="btn btn-calculate">Calcular</button>
+          </div>
+        </form>
+        <form class="form-uf form">
+          <div class="title">
+            <h2>Agua Ingerida</h2>
+            <h3>Vía Oral</h3>
+          </div>
+          <div class="inputs-container">
+            <label>Concentración</label>
+            <select>
+              <option>Seleccione el tipo de bolsa</option>
+              <option value="">Bolsa Amarilla</option>
+              <option value="">Bolsa Verde</option>
+              <option value="">Bolsa Roja</option>
+            </select>
+            <label>Entra <span>(Líquido infundido)</span></label>
+            <input type="number" />
+            <label>Entra <span>(Líquido drenado)</span></label>
+            <input type="number" />
+            <label>Ultrafiltrado</label>
+            <input type="number" />
+            <label>Orina</label>
+            <input type="number" />
+            <label>Vía Oral <span>(Agua Ingerida)</span></label>
+            <input type="number" />
+          </div>
+          <button type="submit" class="btn btn-calculate">Calcular</button>
+        </form>
+      </section>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>
