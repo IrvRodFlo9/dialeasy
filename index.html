@@ -25,28 +25,75 @@
             <h2>Agua por Ingerir</h2>
             <h3>Vía Oral</h3>
           </div>
-          <div class="initial-ask">
+          <section class="initial-ask">
             <p>¿Ya calculó la ultrafiltración (UF) de 24 h?</p>
-            <button class="btn bg-green">SI</button>
-            <button class="btn bg-red">NO</button>
-          </div>
-          <div class="dialisis">
-            <div class="input">
-              <label>Entra (Infundido) mL</label>
-              <input type="number" />
+            <div class="btns-yes-no">
+              <button class="btn bg-green">SI</button>
+              <button class="btn bg-red">NO</button>
             </div>
-            <div class="input">
-              <label>Sale (Drenado) mL</label>
-              <input type="number" />
+          </section>
+          <!-- initial-ask -->
+          <section class="dialisis-container">
+            <div class="dialisis entry-data">
+              <div class="input">
+                <label>Entra (Infunde) mL</label>
+                <input type="number" />
+              </div>
+              <div class="input">
+                <label>Sale (Drena) mL</label>
+                <input type="number" />
+              </div>
+              <div class="dialisis-delta entry-result">
+                <p>Diferencia</p>
+                <p>-150 mL</p>
+              </div>
             </div>
-            <div class="dialisis-delta">
-              <p>Diferencia</p>
-              <p>-150 mL</p>
+            <!-- dialisis -->
+            <div class="dialisis entry-data">
+              <div class="input">
+                <label>Entra (Infunde) mL</label>
+                <input type="number" />
+              </div>
+              <div class="input">
+                <label>Sale (Drena) mL</label>
+                <input type="number" />
+              </div>
+              <div class="dialisis-delta entry-result">
+                <p>Diferencia</p>
+                <p>-150 mL</p>
+              </div>
             </div>
-          </div>
-          <div class="inputs-container"></div>
-          <!-- inputs-container -->
-          <button type="submit" class="btn btn-calculate">Calcular</button>
+            <!-- dialisis -->
+            <div class="apend-container">
+              <button class="btn">Agregar Diálisis</button>
+              <button type="submit" class="btn btn-calculate">
+                Calcular Total
+              </button>
+            </div>
+            <div class="dialisis-result result">
+              <h4>La Ultrafiltación 24 h es:</h4>
+              <p>1000 mL = 1.0 L</p>
+            </div>
+          </section>
+          <!-- dialisis-container -->
+          <section class="water-calculator">
+            <div class="inputs-container">
+              <div class="input">
+                <label>Ultrafiltración 24 h (UF 24) mL</label>
+                <input type="number" />
+              </div>
+              <div class="input">
+                <label>Orina Total (mL)</label>
+                <input type="number" />
+              </div>
+              <button type="submit" class="btn btn-calculate">Calcular</button>
+            </div>
+            <!-- inputs-container -->
+            <div class="water-result result">
+              <h4>Resultado Vía Oral</h4>
+              <p>2000 mL = 2.0 L</p>
+            </div>
+          </section>
         </form>
         <!-- form-uf -->
         <form class="form-ingest form">
@@ -54,8 +101,8 @@
             <h2>Ingesta de Agua</h2>
             <h3>Vía Oral</h3>
           </div>
-          <div class="ingest-container">
-            <div class="ingest">
+          <section class="ingest-container">
+            <div class="ingest entry-data">
               <div class="input input-amount">
                 <label>Cantidad<span>(Tazas)</span></label>
                 <input type="text" />
@@ -66,13 +113,13 @@
                   <option>Papaya</option>
                 </select>
               </div>
-              <div class="water-equivalent">
+              <div class="water-equivalent entry-result">
                 <p>Cantidad de Agua</p>
                 <p>200 mL</p>
               </div>
             </div>
             <!-- ingest -->
-            <div class="ingest">
+            <div class="ingest entry-data">
               <div class="input input-amount">
                 <label>Cantidad<span>(Tazas)</span></label>
                 <input type="text" />
@@ -84,20 +131,22 @@
                   <option>Leche</option>
                 </select>
               </div>
-              <div class="water-equivalent">
+              <div class="water-equivalent entry-result">
                 <p>Cantidad de Agua</p>
                 <p>200 mL</p>
               </div>
             </div>
             <!-- ingest -->
-          </div>
+          </section>
           <!-- ingest-container -->
-          <div class="btns-container">
+          <div class="apend-container">
             <button class="btn">Agregar Ingesta</button>
-            <button type="submit" class="btn btn-calculate">Calcular</button>
+            <button type="submit" class="btn btn-calculate">
+              Calcular Total
+            </button>
           </div>
           <!-- btns-container -->
-          <div class="ingest-result">
+          <div class="ingest-result result">
             <h4>El total de agua es:</h4>
             <p>1000 mL = 1.0 L</p>
           </div>
