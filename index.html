@@ -22,40 +22,87 @@
       <section class="container forms">
         <form class="form-water form">
           <div class="title">
-            <h2>Agua Ingerida</h2>
+            <h2>Agua por Ingerir</h2>
             <h3>Vía Oral</h3>
           </div>
+          <div class="initial-ask">
+            <p>¿Ya calculó la ultrafiltración (UF) de 24 h?</p>
+            <button class="btn bg-green">SI</button>
+            <button class="btn bg-red">NO</button>
+          </div>
+          <div class="dialisis">
+            <div class="input">
+              <label>Entra (Infundido) mL</label>
+              <input type="number" />
+            </div>
+            <div class="input">
+              <label>Sale (Drenado) mL</label>
+              <input type="number" />
+            </div>
+            <div class="dialisis-delta">
+              <p>Diferencia</p>
+              <p>-150 mL</p>
+            </div>
+          </div>
+          <div class="inputs-container"></div>
+          <!-- inputs-container -->
+          <button type="submit" class="btn btn-calculate">Calcular</button>
+        </form>
+        <!-- form-uf -->
+        <form class="form-ingest form">
+          <div class="title">
+            <h2>Ingesta de Agua</h2>
+            <h3>Vía Oral</h3>
+          </div>
+          <div class="ingest-container">
+            <div class="ingest">
+              <div class="input input-amount">
+                <label>Cantidad<span>(Tazas)</span></label>
+                <input type="text" />
+              </div>
+              <div class="input select-ingest">
+                <label>Ingesta</label>
+                <select>
+                  <option>Papaya</option>
+                </select>
+              </div>
+              <div class="water-equivalent">
+                <p>Cantidad de Agua</p>
+                <p>200 mL</p>
+              </div>
+            </div>
+            <!-- ingest -->
+            <div class="ingest">
+              <div class="input input-amount">
+                <label>Cantidad<span>(Tazas)</span></label>
+                <input type="text" />
+              </div>
+              <div class="input select-ingest">
+                <label>Ingesta</label>
+                <select>
+                  <option>Papaya</option>
+                  <option>Leche</option>
+                </select>
+              </div>
+              <div class="water-equivalent">
+                <p>Cantidad de Agua</p>
+                <p>200 mL</p>
+              </div>
+            </div>
+            <!-- ingest -->
+          </div>
+          <!-- ingest-container -->
           <div class="btns-container">
             <button class="btn">Agregar Ingesta</button>
             <button type="submit" class="btn btn-calculate">Calcular</button>
           </div>
-        </form>
-        <form class="form-uf form">
-          <div class="title">
-            <h2>Agua Ingerida</h2>
-            <h3>Vía Oral</h3>
+          <!-- btns-container -->
+          <div class="ingest-result">
+            <h4>El total de agua es:</h4>
+            <p>1000 mL = 1.0 L</p>
           </div>
-          <div class="inputs-container">
-            <label>Concentración</label>
-            <select>
-              <option>Seleccione el tipo de bolsa</option>
-              <option value="">Bolsa Amarilla</option>
-              <option value="">Bolsa Verde</option>
-              <option value="">Bolsa Roja</option>
-            </select>
-            <label>Entra <span>(Líquido infundido)</span></label>
-            <input type="number" />
-            <label>Entra <span>(Líquido drenado)</span></label>
-            <input type="number" />
-            <label>Ultrafiltrado</label>
-            <input type="number" />
-            <label>Orina</label>
-            <input type="number" />
-            <label>Vía Oral <span>(Agua Ingerida)</span></label>
-            <input type="number" />
-          </div>
-          <button type="submit" class="btn btn-calculate">Calcular</button>
         </form>
+        <!-- form-water -->
       </section>
     </main>
     <footer class="footer"></footer>
