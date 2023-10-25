@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dialeasy</title>
+    <title>DialEasy</title>
+    <meta
+      name="description"
+      content="Una solución fácil para los cálculos de diálisis"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,7 +19,7 @@
   </head>
   <body>
     <header class="header">
-      <h1>Dialeasy</h1>
+      <h1>DialEasy</h1>
       <p>Una solución fácil para los cálculos de diálisis</p>
     </header>
     <main>
@@ -34,6 +38,12 @@
           </section>
           <!-- initial-ask -->
           <section class="dialisis-container">
+            <div class="dialisis yesterday-dialisis">
+              <div class="input last-day">
+                <label>Entra (Infunde) último día anterior (mL)</label>
+                <input type="number" />
+              </div>
+            </div>
             <div class="dialisis entry-data">
               <div class="input">
                 <label>Entra (Infunde) mL</label>
@@ -94,6 +104,7 @@
               <p>2000 mL = 2.0 L</p>
             </div>
           </section>
+          <!-- water-calculator -->
         </form>
         <!-- form-uf -->
         <form class="form-ingest form">
@@ -145,7 +156,7 @@
               Calcular Total
             </button>
           </div>
-          <!-- btns-container -->
+          <!-- apend-container -->
           <div class="ingest-result result">
             <h4>El total de agua es:</h4>
             <p>1000 mL = 1.0 L</p>
