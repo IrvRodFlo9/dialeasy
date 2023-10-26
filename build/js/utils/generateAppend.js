@@ -1,0 +1,2 @@
+import{appendBtns}from"./data.js";const generateAppendBtns=(t,n)=>{const{classMain:a,addText:e,classAdd:s,classCalculate:d}=appendBtns[t],l=document.createElement("div");l.classList.add("apend-container"),l.classList.add(a),l.innerHTML=`    \n    <button class="btn ${s}">${e}</button>\n    <button type="submit" class="btn btn-calculate ${d}">Calcular Total</button>\n  `,n.appendChild(l)};export default generateAppendBtns;
+//# sourceMappingURL=generateAppend.js.map
