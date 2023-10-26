@@ -1,0 +1,2 @@
+const generateDialisisContainer=i=>{const n=document.createElement("section");n.classList.add("dialisis-container"),n.innerHTML='\n      <div class="dialisis yesterday-dialisis">\n          <div class="input last-day">\n          <label>Entra (Infunde) último día anterior (mL)</label>\n          <input type="number" />\n          </div>\n      </div>\n    ',i.appendChild(n)};export default generateDialisisContainer;
+//# sourceMappingURL=dialisisContainer.js.map
