@@ -1,9 +1,10 @@
 import { results } from "./data.js";
 
-const generateResult = (type, container) => {
+const generateResult = (type, container, removeElement = null) => {
   const { calculator, extraClass, title } = results[type];
 
   const resultML = calculator();
+  removeElement !== null && removeElement.remove();
   const resultL = resultML / 1000;
   container.innerHTML += `
     <div class="result ${extraClass}">

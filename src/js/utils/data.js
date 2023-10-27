@@ -1,54 +1,76 @@
 import calculateIngest from "../ingestForm/calculateIngest.js";
+import calculateEquivalent from "../ingestForm/calculateEquivalent.js";
+import unlockQuantity from "../ingestForm/unlockQuantity.js";
 
-const inputsFunctions = {
-  inputQuantity: () => {
-    console.log("quantity");
+export const foods = {
+  water: {
+    optionName: "Agua",
+    unit: "mL",
+    equivalent: 1,
   },
-  selectFood: () => {
-    console.log("food");
+  papaya: {
+    optionName: "Papaya",
+    unit: "Tazas",
+    equivalent: 100,
   },
-  inputInfuse: () => {
-    console.log("infuse");
-  },
-  inputDrain: () => {
-    console.log("drain");
+  pinapple: {
+    optionName: "Piña",
+    unit: "Tazas",
+    equivalent: 100,
   },
 };
 
-const entries = {
+const inputsFunctions = {
+  inputQuantity: (entry) => {
+    calculateEquivalent(entry);
+  },
+  selectFood: (entry) => {
+    unlockQuantity(entry);
+  },
+  inputInfuse: (entry) => {
+    console.log("infuse");
+    console.log(entry);
+  },
+  inputDrain: (entry) => {
+    console.log("drain");
+    console.log(entry);
+  },
+};
+
+export const entries = {
   ingest: {
     inputs: {
       inputQuantity: {
         className: "input-quantity",
-        eventType: "click",
-        functionEvent: () => {
-          inputsFunctions.inputQuantity();
+        eventType: "input",
+        functionEvent: (entry) => {
+          inputsFunctions.inputQuantity(entry);
         },
       },
       selectFood: {
         className: "select-food",
         eventType: "change",
-        functionEvent: () => {
-          inputsFunctions.selectFood();
+        functionEvent: (entry) => {
+          inputsFunctions.selectFood(entry);
         },
       },
     },
-    classDisplay: "water-equivalent",
+    classDisplay: "water-quantity",
   },
   dialisis: {
     inputs: {
       inputInfuse: {
         className: "input-infuse",
         eventType: "click",
-        functionEvent: () => {
-          inputsFunctions.inputInfuse();
+        functionEvent: (entry) => {
+          inputsFunctions.inputInfuse(entry);
         },
       },
       inputDrain: {
         className: "input-drain",
         eventType: "click",
-        functionEvent: () => {
-          inputsFunctions.inputDrain();
+        functionEvent: (entry) => {
+          inputsFunctions.inputDrain(entry);
         },
       },
     },
@@ -61,19 +83,19 @@ export const entryDatas = {
     extraClass: "ingest",
     html: `  
         <div class="input input-amount">
-            <label>Cantidad <span>(Tazas)</span></label>
-            <input type="text" class="${entries.ingest.inputs.inputQuantity.className}"/>
+            <label>Cantidad <span class="display-units"></span></label>
+            <input type="number" class="${entries.ingest.inputs.inputQuantity.className}" disabled/>
         </div>
         <div class="input select-ingest">
             <label>Alimento</label>
             <select class="${entries.ingest.inputs.selectFood.className}">
-              <option>Agua</option>    
-              <option>Papaya</option>
+              <option value="water">Agua</option>    
+              <option value="papaya">Papaya</option>
             </select>
         </div>
         <div class="water-equivalent entry-result">
             <p>Cantidad de Agua</p>
-            <p><span class="equivalent-value ${entries.ingest.classDisplay}" > 200 </span> mL</p>
+            <p><span class="equivalent-value ${entries.ingest.classDisplay}" ></span> mL</p>
         </div>
         `,
     append: (element, container) => {

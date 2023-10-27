@@ -16,8 +16,9 @@ const generateEntry = (type, container, elementBefore = null) => {
   for (let inputData in inputs) {
     const { className, eventType, functionEvent } = inputs[inputData];
     const input = entry.querySelector("." + className);
+
     input.addEventListener(eventType, () => {
-      functionEvent();
+      functionEvent(entry);
     });
   }
 };

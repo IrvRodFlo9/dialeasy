@@ -21,7 +21,7 @@ const runIngestForm = () => {
   btnCalculateIngest.addEventListener("click", (e) => {
     e.preventDefault();
     appendBtnsIngest.remove();
-    generateResult("ingestResult", ingestForm);
+    generateResult("ingestResult", ingestForm, ingestContainer);
   });
 };
 
