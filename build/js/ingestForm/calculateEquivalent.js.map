@@ -1,0 +1,1 @@
+{"version":3,"sources":["ingestForm/calculateEquivalent.js"],"names":["foods"],"mappings":"OAASA,UAAa","file":"calculateEquivalent.js","sourcesContent":["import { foods } from \"../utils/data.js\";\r\n"]}

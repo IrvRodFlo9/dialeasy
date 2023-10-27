@@ -1,0 +1,40 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.form-ingest {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: v.$normal;
+
+  .entry-data {
+    @include m.tablet {
+      grid-template-columns: 3fr 3fr 2fr;
+      gap: 2rem;
+    }
+  }
+}
+
+.ingest {
+  &:nth-child(odd) {
+    background-color: darken(v.$normal, 15%);
+  }
+
+  &:nth-child(even) {
+    background-color: lighten(v.$normal, 10%);
+  }
+}
+
+.ingest-result {
+  width: 100%;
+  padding: 0 3rem;
+  margin-top: 3rem;
+
+  @include m.tablet {
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 3rem;
+  }
+}

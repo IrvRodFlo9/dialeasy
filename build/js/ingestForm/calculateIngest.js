@@ -1,2 +1,2 @@
-const calculateIngest=()=>{const e=document.querySelectorAll(".water-equivalent");let t=0;return e.forEach(e=>{const l=e.querySelector(".equivalent-value").textContent;t+=parseInt(l)}),t};export default calculateIngest;
+const calculateIngest=()=>{const t=document.querySelectorAll(".equivalent-value");let e=0;return t.forEach(t=>{const l=t.textContent;e+=parseFloat(l)}),e};export default calculateIngest;
 //# sourceMappingURL=calculateIngest.js.map

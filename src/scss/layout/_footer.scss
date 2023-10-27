@@ -1,0 +1,51 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.footer {
+  background-color: v.$dDark;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: space-between;
+  align-items: center;
+
+  @include m.tablet {
+    flex-direction: row;
+  }
+  p {
+    margin-right: 1.5rem;
+    font-size: 1.6rem;
+    color: v.$white;
+    text-align: center;
+
+    @include m.desktop {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.github {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+
+  @include m.desktop {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    transition: 400ms;
+
+    &:hover {
+      background-color: darken(v.$dDark, 15%);
+      transform: scale(1.01);
+    }
+  }
+
+  img {
+    width: 3rem;
+
+    @include m.tablet {
+      width: 5rem;
+    }
+  }
+}

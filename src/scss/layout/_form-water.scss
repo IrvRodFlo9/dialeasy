@@ -1,0 +1,111 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.form-water {
+  background-color: lighten(v.$dark, 21%);
+
+  .initial-ask,
+  .dialisis,
+  .water-calculator {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+  .entry-data {
+    @include m.tablet {
+      grid-template-columns: 2fr 2fr 1fr;
+      gap: 2rem;
+    }
+  }
+}
+
+.initial-ask {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .btns-yes-no {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+  }
+  .btn {
+    width: 100%;
+
+    @include m.tablet {
+      width: 10rem;
+    }
+  }
+
+  .bg-green {
+    background-color: v.$green;
+  }
+
+  .bg-red {
+    background-color: v.$red;
+  }
+}
+
+.dialisis {
+  &:nth-child(odd) {
+    background-color: lighten(v.$dark, 18%);
+  }
+
+  &:nth-child(even) {
+    background-color: lighten(v.$dark, 28%);
+  }
+}
+
+.yesterday-dialisis {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+
+  .last-day {
+    @include m.gridC(2, 3rem);
+    place-items: center;
+
+    label {
+      width: 100%;
+      text-align: end;
+    }
+  }
+}
+
+.dialisis-result {
+  margin: 3rem 0;
+
+  @include m.tablet {
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 3rem;
+  }
+}
+
+.water-calculator {
+  display: grid;
+  align-items: center;
+  gap: 3rem;
+
+  @include m.tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.water-result {
+  background-color: lighten(v.$normal, 10%);
+  border-radius: 1.5rem;
+  padding: 1.5rem 0;
+  align-items: center;
+
+  @include m.tablet {
+    padding: 3rem 0;
+  }
+}

@@ -1,0 +1,158 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+main {
+  padding: 4rem 0;
+}
+
+.form {
+  padding: 3rem 0;
+  @include m.tablet {
+    border-radius: 2rem;
+    box-shadow: 0px 0px 20px -11px rgba(0, 0, 0, 0.75);
+  }
+
+  &:first-child {
+    margin-bottom: 4rem;
+  }
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2rem;
+    color: v.$dDark;
+  }
+
+  @include m.tablet {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: baseline;
+  }
+}
+
+.entry-data {
+  padding: 1.5rem 3rem 2rem 3rem;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
+  row-gap: 1rem;
+
+  .entry-result {
+    width: 100%;
+    grid-column: span 2;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+    p {
+      font-size: 1.6rem;
+    }
+
+    p:last-child {
+      font-weight: bold;
+    }
+
+    @include m.tablet {
+      grid-column: span 1;
+      flex-direction: column;
+      text-align: end;
+    }
+  }
+}
+
+.btn {
+  width: 100%;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.2rem 2.2rem;
+  color: v.$white;
+  box-shadow: 0px 0px 20px -11px rgba(0, 0, 0, 0.75);
+  background-color: v.$dark;
+
+  &:active {
+    background-color: v.$dark;
+  }
+
+  @include m.tablet {
+    width: auto;
+  }
+
+  @include m.desktop {
+    &:hover {
+      cursor: pointer;
+      transition: all 400ms;
+      transform: scale(1.02);
+    }
+  }
+}
+
+.apend-container {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+}
+
+.btn-calculate {
+  background-color: v.$green;
+  @include m.desktop {
+    &:hover {
+      background-color: darken(v.$green, 10%);
+    }
+  }
+}
+
+.input {
+  width: 100%;
+  input,
+  select {
+    width: 100%;
+    margin-top: 0.6rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 20px -11px rgba(0, 0, 0, 0.75);
+  }
+
+  label {
+    font-size: 1.5rem;
+
+    @include m.tablet {
+      font-size: 1.6rem;
+    }
+  }
+
+  input {
+    padding: 1rem;
+  }
+
+  select {
+    padding: 0.75rem;
+  }
+}
+
+.result {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    margin: 0 0 1.2rem 0;
+    font-size: 1.8rem;
+  }
+  p {
+    font-size: 2.3rem;
+    font-weight: bold;
+  }
+}
