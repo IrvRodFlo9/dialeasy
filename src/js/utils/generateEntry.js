@@ -7,7 +7,7 @@ const generateEntry = (type, container, elementBefore = null) => {
   const entry = document.createElement("div");
   entry.classList.add("entry-data");
   entry.classList.add(extraClass);
-  entry.innerHTML = html;
+  entry.innerHTML = html();
 
   elementBefore === null
     ? append(entry, container)
