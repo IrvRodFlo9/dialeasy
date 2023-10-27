@@ -1,2 +1,2 @@
-import{entryDatas}from"./data.js";const generateEntry=(t,a,e=null)=>{const{extraClass:n,html:r,append:s}=entryDatas[t],d=document.createElement("div");d.classList.add("entry-data"),d.classList.add(n),d.innerHTML=r,null===e?s(d,a):s(d,a,e)};export default generateEntry;
+import{entryDatas}from"./data.js";const generateEntry=(t,e,a=null)=>{const{extraClass:n,html:s,append:l,data:r}=entryDatas[t],{classInputs:d,classDisplay:c}=r,o=document.createElement("div");o.classList.add("entry-data"),o.classList.add(n),o.innerHTML=s,null===a?l(o,e):l(o,e,a);for(let t in d){o.querySelector("."+d[t]).addEventListener("click",()=>{console.log(t)})}};export default generateEntry;
 //# sourceMappingURL=generateEntry.js.map

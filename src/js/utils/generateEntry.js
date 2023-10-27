@@ -1,7 +1,8 @@
 import { entryDatas } from "./data.js";
 
 const generateEntry = (type, container, elementBefore = null) => {
-  const { extraClass, html, append } = entryDatas[type];
+  const { extraClass, html, append, data } = entryDatas[type];
+  const { classInputs, classDisplay } = data;
 
   const entry = document.createElement("div");
   entry.classList.add("entry-data");
@@ -11,6 +12,13 @@ const generateEntry = (type, container, elementBefore = null) => {
   elementBefore === null
     ? append(entry, container)
     : append(entry, container, elementBefore);
+
+  for (let classInput in classInputs) {
+    const input = entry.querySelector("." + classInputs[classInput]);
+    input.addEventListener("click", () => {
+      console.log(classInput);
+    });
+  }
 };
 
 export default generateEntry;
