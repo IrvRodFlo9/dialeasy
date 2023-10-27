@@ -1,17 +1,56 @@
 import calculateIngest from "../ingestForm/calculateIngest.js";
 
+const inputsFunctions = {
+  inputQuantity: () => {
+    console.log("quantity");
+  },
+  selectFood: () => {
+    console.log("food");
+  },
+  inputInfuse: () => {
+    console.log("infuse");
+  },
+  inputDrain: () => {
+    console.log("drain");
+  },
+};
+
 const entries = {
   ingest: {
-    classInputs: {
-      inputQuantity: "input-quantity",
-      selectFood: "select-food",
+    inputs: {
+      inputQuantity: {
+        className: "input-quantity",
+        eventType: "click",
+        functionEvent: () => {
+          inputsFunctions.inputQuantity();
+        },
+      },
+      selectFood: {
+        className: "select-food",
+        eventType: "change",
+        functionEvent: () => {
+          inputsFunctions.selectFood();
+        },
+      },
     },
     classDisplay: "water-equivalent",
   },
   dialisis: {
-    classInputs: {
-      inputInfuse: "input-infuse-",
-      inputDrain: "input-drain",
+    inputs: {
+      inputInfuse: {
+        className: "input-infuse",
+        eventType: "click",
+        functionEvent: () => {
+          inputsFunctions.inputInfuse();
+        },
+      },
+      inputDrain: {
+        className: "input-drain",
+        eventType: "click",
+        functionEvent: () => {
+          inputsFunctions.inputDrain();
+        },
+      },
     },
     classDisplay: "dialisis-equivalent",
   },
@@ -23,12 +62,13 @@ export const entryDatas = {
     html: `  
         <div class="input input-amount">
             <label>Cantidad <span>(Tazas)</span></label>
-            <input type="text" class="${entries.ingest.classInputs.inputQuantity}"/>
+            <input type="text" class="${entries.ingest.inputs.inputQuantity.className}"/>
         </div>
         <div class="input select-ingest">
             <label>Alimento</label>
-            <select class="${entries.ingest.classInputs.selectFood}">
-                <option>Papaya</option>
+            <select class="${entries.ingest.inputs.selectFood.className}">
+              <option>Agua</option>    
+              <option>Papaya</option>
             </select>
         </div>
         <div class="water-equivalent entry-result">
@@ -46,11 +86,11 @@ export const entryDatas = {
     html: `  
       <div class="input">
         <label>Entra (Infunde) mL</label>
-        <input type="number" class="${entries.dialisis.classInputs.inputInfuse}"/>
+        <input type="number" class="${entries.dialisis.inputs.inputInfuse.className}"/>
       </div>
       <div class="input">
         <label>Sale (Drena) mL</label>
-        <input type="number" class="${entries.dialisis.classInputs.inputDrain}"/>
+        <input type="number" class="${entries.dialisis.inputs.inputDrain.className}"/>
       </div>
       <div class="dialisis-delta entry-result">
         <p>Diferencia</p>
