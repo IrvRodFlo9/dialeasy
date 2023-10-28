@@ -1,7 +1,7 @@
 import { appendBtns } from "./data.js";
 
-const generateAppendBtns = (type, container) => {
-  const { classMain, addText, classAdd, classCalculate } = appendBtns[type];
+const generateAppendBtns = (typeData, container) => {
+  const { classMain, addText, classAdd, classCalculate } = typeData;
 
   const appendContainer = document.createElement("div");
   appendContainer.classList.add("apend-container");

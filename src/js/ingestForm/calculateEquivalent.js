@@ -4,7 +4,7 @@ const calculateEquivalent = (entry) => {
   const { inputs, classDisplay } = entries.ingest;
   const { inputQuantity, selectFood } = inputs;
 
-  const screenEquivalent = entry.querySelector("." + classDisplay);
+  const screen = entry.querySelector("." + classDisplay);
   const inputQuantityElement = entry.querySelector(
     "." + inputQuantity.className
   );
@@ -13,9 +13,9 @@ const calculateEquivalent = (entry) => {
   const equivalent = foods[selectFoodElement.value].equivalent;
   const quantity = inputQuantityElement.value;
 
-  const value = Math.round(equivalent * quantity);
+  const result = Math.round(equivalent * quantity);
 
-  screenEquivalent.textContent = value;
+  screen.textContent = result;
 };
 
 export default calculateEquivalent;

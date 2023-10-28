@@ -5,7 +5,7 @@ const generateDialisisContainer = (container) => {
       <div class="dialisis yesterday-dialisis">
           <div class="input last-day">
           <label>Entra (Infunde) último día anterior (mL)</label>
-          <input type="number" />
+          <input type="number" class="input-infuse" />
           </div>
       </div>
     `;

@@ -1,6 +1,6 @@
 import { entryDatas } from "./data.js";
 
-const generateEntry = (type, container, elementBefore = null) => {
+const generateEntry = (type, container) => {
   const { extraClass, html, append, data } = entryDatas[type];
   const { inputs } = data;
 
@@ -8,10 +8,7 @@ const generateEntry = (type, container, elementBefore = null) => {
   entry.classList.add("entry-data");
   entry.classList.add(extraClass);
   entry.innerHTML = html();
-
-  elementBefore === null
-    ? append(entry, container)
-    : append(entry, container, elementBefore);
+  append(entry, container);
 
   for (let inputData in inputs) {
     const { className, eventType, functionEvent } = inputs[inputData];
