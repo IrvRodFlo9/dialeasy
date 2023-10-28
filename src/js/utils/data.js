@@ -2,6 +2,8 @@ import calculateIngest from "../ingestForm/calculateIngest.js";
 import calculateEquivalent from "../ingestForm/calculateEquivalent.js";
 import unlockQuantity from "../ingestForm/unlockQuantity.js";
 import generateFoods from "../ingestForm/generateFoods.js";
+import generateResult from "./calculateResult.js";
+import generateWaterCalculator from "../waterForm/waterCalculator.js";
 
 export const foods = {
   water: {
@@ -150,10 +152,8 @@ export const entryDatas = {
       `;
       return html;
     },
-    append: (element, container, elementBefore = null) => {
-      elementBefore === null
-        ? container.appendChild(element)
-        : container.insertBefore(element, elementBefore);
+    append: (element, container) => {
+      container.appendChild(element);
     },
     data: entries.dialisis,
   },
@@ -165,12 +165,23 @@ export const appendBtns = {
     addText: "Agregar Ingesta",
     classAdd: "add-ingest",
     classCalculate: "calculate-ingest",
+    entryToAdd: "entryIngest",
+    resultType: "ingestResult",
+    calculateFunction: (resultType, container, entriesContainer) => {
+      generateResult(resultType, container, entriesContainer);
+    },
   },
   appendDialisis: {
     classMain: "apend-dialisis",
     addText: "Agregar Dialisis",
     classAdd: "add-dialisis",
     classCalculate: "calculate-dialisis",
+    entryToAdd: "entryDialisis",
+    resultType: "dialisisResult",
+    calculateFunction: (resultType, container, entriesContainer) => {
+      generateResult(resultType, container, entriesContainer);
+      generateWaterCalculator(container);
+    },
   },
 };
 
@@ -197,5 +208,14 @@ export const results = {
     },
     extraClass: "ingest-result",
     title: "El total de agua es:",
+  },
+};
+
+export const forms = {
+  dialisis: {
+    typeAppendBtns: "appendDialisis",
+  },
+  ingest: {
+    typeAppendBtns: "appendIngest",
   },
 };
