@@ -1,2 +1,2 @@
-import{foods,entries}from"../utils/data.js";const calculateEquivalent=e=>{const{inputs:t,classDisplay:a}=entries.ingest,{inputQuantity:l,selectFood:s}=t,o=e.querySelector("."+a),u=e.querySelector("."+l.className),n=e.querySelector("."+s.className),c=foods[n.value].equivalent,i=u.value,r=Math.round(c*i);o.textContent=r};export default calculateEquivalent;
+import{foods,entries}from"../utils/data.js";const calculateEquivalent=e=>{const{inputs:t,classDisplay:a}=entries.ingest,{inputQuantity:l,selectFood:s}=t,u=(e.querySelector("."+a),e.querySelector("."+l.className)),o=e.querySelector("."+s.className),r=foods[o.value].equivalent,c=u.value;return Math.round(r*c)};export default calculateEquivalent;
 //# sourceMappingURL=calculateEquivalent.js.map

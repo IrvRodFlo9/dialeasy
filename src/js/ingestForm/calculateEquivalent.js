@@ -15,7 +15,7 @@ const calculateEquivalent = (entry) => {
 
   const result = Math.round(equivalent * quantity);
 
-  screen.textContent = result;
+  return result;
 };
 
 export default calculateEquivalent;

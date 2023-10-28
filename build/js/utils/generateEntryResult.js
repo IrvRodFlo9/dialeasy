@@ -1,0 +1,2 @@
+import{entriesResults}from"./data.js";const generateEntryResult=(e,t,s)=>{t.querySelectorAll(".entry-result").length>0&&t.querySelector(".entry-result").remove();const{textLabel:l,classStyle:n,classDisplay:r}=entriesResults[e];let a="";r.forEach(e=>{a+=" "+e});const c=s(t),o=document.createElement("div");o.classList.add("entry-result"),o.classList.add(n),o.innerHTML=`\n        <p>${l}</p>\n        <p><span class="${a}">${c}</span> mL</p>\n    `,t.appendChild(o)};export default generateEntryResult;
+//# sourceMappingURL=generateEntryResult.js.map

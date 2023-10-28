@@ -6,6 +6,7 @@ import calculateWater from "../waterForm/calculateWater.js";
 import unlockQuantity from "../ingestForm/unlockQuantity.js";
 import unlockCalculateWater from "../waterForm/unlockCalculateWater.js";
 import generateFoods from "../ingestForm/generateFoods.js";
+import generateEntryResult from "./generateEntryResult.js";
 import generateResult from "./generateResult.js";
 import generateWaterCalculator from "../waterForm/generateWaterCalculator.js";
 
@@ -49,7 +50,7 @@ export const foods = {
 
 export const inputsFunctions = {
   inputQuantity: (entry) => {
-    calculateEquivalent(entry);
+    generateEntryResult("entryIngest", entry, calculateEquivalent);
   },
   selectFood: (entry) => {
     unlockQuantity(entry);
@@ -106,6 +107,19 @@ export const entries = {
   },
 };
 
+export const entriesResults = {
+  entryIngest: {
+    textLabel: "Cantidad de Agua",
+    classStyle: "water-equivalent",
+    classDisplay: ["equivalent-value", entries.ingest.classDisplay],
+  },
+  entryDialisis: {
+    textLabel: "Diferencia",
+    classStyle: "dialisis-delta",
+    classDisplay: [entries.dialisis.classDisplay],
+  },
+};
+
 export const entryDatas = {
   entryIngest: {
     extraClass: "ingest",
@@ -123,12 +137,6 @@ export const entryDatas = {
               <option selected disabled>Seleccione alimento </option>
               ${generateFoods(foods)}
             </select>
-        </div>
-        <div class="water-equivalent entry-result">
-            <p>Cantidad de Agua</p>
-            <p><span class="equivalent-value ${
-              entries.ingest.classDisplay
-            }" ></span> mL</p>
         </div>
       `;
       return html;

@@ -1,0 +1,2 @@
+import{entriesResults}from"./data.js";const generatePseudoResult=(e,s,t)=>{const{textLabel:a,classStyle:l,classDisplay:n}=entriesResults[e];n.forEach(e=>{e+=" "+e}),result=t(s);const r=document.createElement("div");r.classList.add("entry-result"),r.classList.add(l),r.innerHTML=`\n        <p>${a}</p>\n        <p><span class="">${result}</span> mL</p>\n    `,s.appendChild(r)};export default generatePseudoResult;
+//# sourceMappingURL=generatePseudoResult.js.map
