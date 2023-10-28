@@ -14,7 +14,7 @@ const calculateDialisis = (entry) => {
 
   const result = parseFloat(drain) - parseFloat(infuse);
 
-  return result;
+  screen.textContent = result;
 };
 
 export default calculateDialisis;
