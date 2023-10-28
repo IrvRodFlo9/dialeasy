@@ -1,4 +1,4 @@
-import generateWaterCalculator from "./waterCalculator.js";
+import generateWaterCalculator from "./generateWaterCalculator.js";
 import startDialisis from "./startDialisis.js";
 
 const waterForm = document.querySelector(".form-water");

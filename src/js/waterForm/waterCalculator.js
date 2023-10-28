@@ -1,30 +1,9 @@
-import generateResult from "../utils/calculateResult.js";
+const waterCalculator = () => {
+  const urine = document.querySelector(".input-urine").value;
+  const uf24 = document.querySelector(".input-uf24").value;
+  const result = parseFloat(urine) + parseFloat(uf24);
 
-const generateWaterCalculator = (container) => {
-  const waterCalculator = document.createElement("section");
-  waterCalculator.classList.add("water-calculator");
-  waterCalculator.innerHTML = `
-        <div class="inputs-container">
-            <div class="input">
-                <label>Ultrafiltración 24 h (UF 24) mL</label>
-                <input type="number" />
-            </div>
-            <div class="input">
-                <label>Orina Total (mL)</label>
-                <input type="number" />
-            </div>
-            <button type="submit" class="btn btn-calculate calculate-water">Calcular</button>
-        </div>
-        <!-- inputs-container -->
-    `;
-
-  container.appendChild(waterCalculator);
-
-  const btnCalculateWater = document.querySelector(".calculate-water");
-  btnCalculateWater.addEventListener("click", (e) => {
-    e.preventDefault();
-    generateResult("waterResult", waterCalculator);
-  });
+  return result;
 };
 
-export default generateWaterCalculator;
+export default waterCalculator;

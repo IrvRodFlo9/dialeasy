@@ -3,7 +3,8 @@ import calculateEquivalent from "../ingestForm/calculateEquivalent.js";
 import unlockQuantity from "../ingestForm/unlockQuantity.js";
 import generateFoods from "../ingestForm/generateFoods.js";
 import generateResult from "./calculateResult.js";
-import generateWaterCalculator from "../waterForm/waterCalculator.js";
+import generateWaterCalculator from "../waterForm/generateWaterCalculator.js";
+import waterCalculator from "../waterForm/waterCalculator.js";
 
 export const foods = {
   water: {
@@ -57,6 +58,12 @@ const inputsFunctions = {
   inputDrain: (entry) => {
     console.log("drain");
     console.log(entry);
+  },
+  inputUF24: () => {
+    console.log("uf24");
+  },
+  inputUrine: () => {
+    console.log("urine");
   },
 };
 
@@ -188,8 +195,7 @@ export const appendBtns = {
 export const results = {
   waterResult: {
     calculator: () => {
-      console.log("calculando agua");
-      return 1000;
+      return waterCalculator();
     },
     extraClass: "water-result",
     title: "Resultado Vía Oral",
