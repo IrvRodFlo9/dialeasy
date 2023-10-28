@@ -4,6 +4,7 @@ import calculateDialisis from "../waterForm/calculateDialisis.js";
 import calculateUF from "../waterForm/calculateUF.js";
 import calculateWater from "../waterForm/calculateWater.js";
 import unlockQuantity from "../ingestForm/unlockQuantity.js";
+import unlockDialisisEntries from "../waterForm/unlockDialisisEntries.js";
 import unlockCalculateWater from "../waterForm/unlockCalculateWater.js";
 import generateFoods from "../ingestForm/generateFoods.js";
 import generateEntryResult from "./generateEntryResult.js";
@@ -64,6 +65,9 @@ export const inputsFunctions = {
   inputsWaterCalculator: (inputs, btnCalculate) => {
     unlockCalculateWater(inputs, btnCalculate);
   },
+  inpuInfuseYesterday: (entry) => {
+    unlockDialisisEntries(entry);
+  },
 };
 
 export const entries = {
@@ -105,6 +109,17 @@ export const entries = {
     },
     classDisplay: "dialisis-equivalent",
   },
+  yesterday: {
+    inputs: {
+      inputInfuseYesterday: {
+        className: "input-infuse",
+        eventType: "input",
+        functionEvent: (entry) => {
+          inputsFunctions.inpuInfuseYesterday(entry);
+        },
+      },
+    },
+  },
 };
 
 export const entriesResults = {
@@ -122,7 +137,7 @@ export const entriesResults = {
 
 export const entryDatas = {
   entryIngest: {
-    extraClass: "ingest",
+    extraClasses: ["ingest"],
     html: () => {
       const html = `  
         <div class="input input-amount">
@@ -141,13 +156,23 @@ export const entryDatas = {
       `;
       return html;
     },
-    append: (element, container) => {
-      container.appendChild(element);
-    },
     data: entries.ingest,
   },
+  entryInfuseYesterday: {
+    extraClasses: ["dialisis", "yesterday-dialisis"],
+    html: () => {
+      const html = `  
+        <div class="input last-day">
+          <label>Entra (Infunde) último día anterior (mL)</label>
+          <input type="number" class="${entries.yesterday.inputs.inputInfuseYesterday.className}" />
+        </div>
+      `;
+      return html;
+    },
+    data: entries.yesterday,
+  },
   entryDialisis: {
-    extraClass: "dialisis",
+    extraClasses: ["dialisis"],
     html: () => {
       const html = `  
         <div class="input">
@@ -164,9 +189,6 @@ export const entryDatas = {
         </div>
       `;
       return html;
-    },
-    append: (element, container) => {
-      container.appendChild(element);
     },
     data: entries.dialisis,
   },

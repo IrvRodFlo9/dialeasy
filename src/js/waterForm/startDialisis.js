@@ -6,8 +6,10 @@ const startDialisis = (container) => {
   generateDialisisContainer(container);
   const dialisisContainer = document.querySelector(".dialisis-container");
 
+  generateEntry("entryInfuseYesterday", dialisisContainer);
+
   for (let count = 1; count <= 3; count++) {
-    generateEntry("entryDialisis", dialisisContainer);
+    generateEntry("entryDialisis", dialisisContainer, true);
   }
 
   runAppendBtns("appendDialisis", container, dialisisContainer);
