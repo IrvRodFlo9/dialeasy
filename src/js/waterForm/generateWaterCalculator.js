@@ -2,6 +2,9 @@ import generateResult from "../utils/generateResult.js";
 import { inputsFunctions } from "../utils/data.js";
 
 const generateWaterCalculator = (container, ultrafiltration = null) => {
+  container.querySelectorAll(".water-calculator").length > 0 &&
+    container.querySelector(".water-calculator").remove();
+
   const waterCalculator = document.createElement("section");
   waterCalculator.classList.add("water-calculator");
   waterCalculator.innerHTML = `
@@ -25,6 +28,8 @@ const generateWaterCalculator = (container, ultrafiltration = null) => {
   const inputUrine = document.querySelector(".input-urine");
   const inputUF24 = document.querySelector(".input-uf24");
   const { inputsWaterCalculator } = inputsFunctions;
+
+  ultrafiltration !== null && (inputUF24.value = ultrafiltration);
 
   inputUrine.addEventListener("input", (e) => {
     e.preventDefault();

@@ -1,11 +1,13 @@
 import calculateIngest from "../ingestForm/calculateIngest.js";
 import calculateEquivalent from "../ingestForm/calculateEquivalent.js";
+import calculateDialisis from "../waterForm/calculateDialisis.js";
+import calculateUF from "../waterForm/calculateUF.js";
+import calculateWater from "../waterForm/calculateWater.js";
 import unlockQuantity from "../ingestForm/unlockQuantity.js";
+import unlockCalculateWater from "../waterForm/unlockCalculateWater.js";
 import generateFoods from "../ingestForm/generateFoods.js";
 import generateResult from "./generateResult.js";
 import generateWaterCalculator from "../waterForm/generateWaterCalculator.js";
-import calculateWater from "../waterForm/calculateWater.js";
-import unlockCalculateWater from "../waterForm/unlockCalculateWater.js";
 
 export const foods = {
   water: {
@@ -53,12 +55,10 @@ export const inputsFunctions = {
     unlockQuantity(entry);
   },
   inputInfuse: (entry) => {
-    console.log("infuse");
-    console.log(entry);
+    calculateDialisis(entry);
   },
   inputDrain: (entry) => {
-    console.log("drain");
-    console.log(entry);
+    calculateDialisis(entry);
   },
   inputsWaterCalculator: (inputs, btnCalculate) => {
     unlockCalculateWater(inputs, btnCalculate);
@@ -89,14 +89,14 @@ export const entries = {
     inputs: {
       inputInfuse: {
         className: "input-infuse",
-        eventType: "click",
+        eventType: "input",
         functionEvent: (entry) => {
           inputsFunctions.inputInfuse(entry);
         },
       },
       inputDrain: {
         className: "input-drain",
-        eventType: "click",
+        eventType: "input",
         functionEvent: (entry) => {
           inputsFunctions.inputDrain(entry);
         },
@@ -115,7 +115,7 @@ export const entryDatas = {
             <label>Cantidad <span class="display-units"></span></label>
             <input type="number" class="${
               entries.ingest.inputs.inputQuantity.className
-            }" disabled/>
+            }" disabled min="0"/>
         </div>
         <div class="input select-ingest">
             <label>Alimento</label>
@@ -144,15 +144,15 @@ export const entryDatas = {
       const html = `  
         <div class="input">
           <label>Entra (Infunde) mL</label>
-          <input type="number" class="${entries.dialisis.inputs.inputInfuse.className}"/>
+          <input type="number" class="${entries.dialisis.inputs.inputInfuse.className} min="0""/>
         </div>
         <div class="input">
           <label>Sale (Drena) mL</label>
-          <input type="number" class="${entries.dialisis.inputs.inputDrain.className}"/>
+          <input type="number" class="${entries.dialisis.inputs.inputDrain.className} min="0""/>
         </div>
         <div class="dialisis-delta entry-result">
           <p>Diferencia</p>
-          <p><span class="${entries.dialisis.classDisplay}"> 200 </span> mL</p>
+          <p><span class="${entries.dialisis.classDisplay}"></span> mL</p>
         </div>
       `;
       return html;
@@ -184,8 +184,10 @@ export const appendBtns = {
     entryToAdd: "entryDialisis",
     resultType: "dialisisResult",
     calculateFunction: (resultType, container) => {
+      const ultrafiltration = calculateUF();
+
       generateResult(resultType, container);
-      generateWaterCalculator(container);
+      generateWaterCalculator(container, ultrafiltration);
     },
   },
 };
@@ -200,8 +202,7 @@ export const results = {
   },
   dialisisResult: {
     calculator: () => {
-      console.log("calculando dialisis");
-      return 1000;
+      return calculateUF();
     },
     extraClass: "dialisis-result",
     title: "La Ultrafiltración 24 h es:",

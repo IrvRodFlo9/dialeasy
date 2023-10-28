@@ -16,6 +16,10 @@
   }
 }
 
+.ingest-container {
+  width: 100%;
+}
+
 .ingest {
   &:nth-child(odd) {
     background-color: darken(v.$normal, 15%);
