@@ -7,7 +7,6 @@ const initialBtns = document.querySelector(".btns-yes-no");
 
 const answer = (e) => {
   e.preventDefault();
-
   const answer = e.target.textContent.toLowerCase();
   if (["si", "no"].includes(answer)) {
     initialAsk.remove();
@@ -19,6 +18,7 @@ const answer = (e) => {
 
 const runWaterForm = () => {
   initialBtns.addEventListener("click", (e) => {
+    e.preventDefault();
     answer(e);
   });
 };
