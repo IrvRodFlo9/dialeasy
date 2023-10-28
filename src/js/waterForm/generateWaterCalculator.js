@@ -1,4 +1,5 @@
-import generateResult from "../utils/calculateResult.js";
+import generateResult from "../utils/generateResult.js";
+import { inputsFunctions } from "../utils/data.js";
 
 const generateWaterCalculator = (container, ultrafiltration = null) => {
   const waterCalculator = document.createElement("section");
@@ -13,7 +14,7 @@ const generateWaterCalculator = (container, ultrafiltration = null) => {
             <label>Orina Total (mL)</label>
             <input type="number" class="input-urine" min="1"/>
         </div>
-        <button class="btn btn-calculate calculate-water">Calcular</button>
+        <button class="btn btn-calculate calculate-water" disabled>Calcular</button>
     </div>
     <!-- inputs-container -->
   `;
@@ -21,8 +22,23 @@ const generateWaterCalculator = (container, ultrafiltration = null) => {
   container.appendChild(waterCalculator);
 
   const btnCalculateWater = document.querySelector(".calculate-water");
+  const inputUrine = document.querySelector(".input-urine");
+  const inputUF24 = document.querySelector(".input-uf24");
+  const { inputsWaterCalculator } = inputsFunctions;
+
+  inputUrine.addEventListener("input", (e) => {
+    e.preventDefault();
+    inputsWaterCalculator([inputUF24, inputUrine], btnCalculateWater);
+  });
+
+  inputUF24.addEventListener("input", (e) => {
+    e.preventDefault();
+    inputsWaterCalculator([inputUF24, inputUrine], btnCalculateWater);
+  });
+
   btnCalculateWater.addEventListener("click", (e) => {
     e.preventDefault();
+    btnCalculateWater.disabled = true;
     generateResult("waterResult", waterCalculator);
   });
 };

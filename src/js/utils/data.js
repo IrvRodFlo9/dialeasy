@@ -2,9 +2,10 @@ import calculateIngest from "../ingestForm/calculateIngest.js";
 import calculateEquivalent from "../ingestForm/calculateEquivalent.js";
 import unlockQuantity from "../ingestForm/unlockQuantity.js";
 import generateFoods from "../ingestForm/generateFoods.js";
-import generateResult from "./calculateResult.js";
+import generateResult from "./generateResult.js";
 import generateWaterCalculator from "../waterForm/generateWaterCalculator.js";
-import waterCalculator from "../waterForm/waterCalculator.js";
+import calculateWater from "../waterForm/calculateWater.js";
+import unlockCalculateWater from "../waterForm/unlockCalculateWater.js";
 
 export const foods = {
   water: {
@@ -44,7 +45,7 @@ export const foods = {
   },
 };
 
-const inputsFunctions = {
+export const inputsFunctions = {
   inputQuantity: (entry) => {
     calculateEquivalent(entry);
   },
@@ -59,11 +60,8 @@ const inputsFunctions = {
     console.log("drain");
     console.log(entry);
   },
-  inputUF24: () => {
-    console.log("uf24");
-  },
-  inputUrine: () => {
-    console.log("urine");
+  inputsWaterCalculator: (inputs, btnCalculate) => {
+    unlockCalculateWater(inputs, btnCalculate);
   },
 };
 
@@ -174,8 +172,8 @@ export const appendBtns = {
     classCalculate: "calculate-ingest",
     entryToAdd: "entryIngest",
     resultType: "ingestResult",
-    calculateFunction: (resultType, container, entriesContainer) => {
-      generateResult(resultType, container, entriesContainer);
+    calculateFunction: (resultType, container) => {
+      generateResult(resultType, container);
     },
   },
   appendDialisis: {
@@ -185,8 +183,8 @@ export const appendBtns = {
     classCalculate: "calculate-dialisis",
     entryToAdd: "entryDialisis",
     resultType: "dialisisResult",
-    calculateFunction: (resultType, container, entriesContainer) => {
-      generateResult(resultType, container, entriesContainer);
+    calculateFunction: (resultType, container) => {
+      generateResult(resultType, container);
       generateWaterCalculator(container);
     },
   },
@@ -195,7 +193,7 @@ export const appendBtns = {
 export const results = {
   waterResult: {
     calculator: () => {
-      return waterCalculator();
+      return calculateWater();
     },
     extraClass: "water-result",
     title: "Resultado Vía Oral",
