@@ -1,6 +1,6 @@
 import { entryDatas } from "./data.js";
 
-const generateEntry = (type, container, lock = false) => {
+const generateEntry = (type, container, lock = null) => {
   const { extraClasses, html, append, data } = entryDatas[type];
   const { inputs } = data;
 
@@ -16,7 +16,7 @@ const generateEntry = (type, container, lock = false) => {
   for (let inputData in inputs) {
     const { className, eventType, functionEvent } = inputs[inputData];
     const input = entry.querySelector("." + className);
-    input.disabled = lock;
+    lock !== null && (input.disabled = lock);
 
     input.addEventListener(eventType, () => {
       functionEvent(entry);

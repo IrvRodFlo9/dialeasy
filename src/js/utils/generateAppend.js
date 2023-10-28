@@ -8,7 +8,7 @@ const generateAppendBtns = (typeData, container) => {
   appendContainer.classList.add(classMain);
   appendContainer.innerHTML = `    
     <button class="btn ${classAdd}">${addText}</button>
-    <button class="btn btn-calculate ${classCalculate}">Calcular Total</button>
+    <button class="btn btn-calculate ${classCalculate}" disabled>Calcular Total</button>
   `;
 
   container.appendChild(appendContainer);

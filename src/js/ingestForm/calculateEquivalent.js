@@ -1,10 +1,9 @@
 import { foods, entries } from "../utils/data.js";
 
 const calculateEquivalent = (entry) => {
-  const { inputs, classDisplay } = entries.ingest;
+  const { inputs } = entries.ingest;
   const { inputQuantity, selectFood } = inputs;
 
-  const screen = entry.querySelector("." + classDisplay);
   const inputQuantityElement = entry.querySelector(
     "." + inputQuantity.className
   );

@@ -6,6 +6,7 @@ import calculateWater from "../waterForm/calculateWater.js";
 import unlockQuantity from "../ingestForm/unlockQuantity.js";
 import unlockDialisisEntries from "../waterForm/unlockDialisisEntries.js";
 import unlockCalculateWater from "../waterForm/unlockCalculateWater.js";
+import unlosckCalculateBtn from "../ingestForm/unlockCalculateBtn.js";
 import generateFoods from "../ingestForm/generateFoods.js";
 import generateEntryResult from "./generateEntryResult.js";
 import generateResult from "./generateResult.js";
@@ -52,6 +53,7 @@ export const foods = {
 export const inputsFunctions = {
   inputQuantity: (entry) => {
     generateEntryResult("entryIngest", entry, calculateEquivalent);
+    unlosckCalculateBtn(entry);
   },
   selectFood: (entry) => {
     unlockQuantity(entry);
