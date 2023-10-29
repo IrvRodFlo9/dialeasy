@@ -1,20 +1,19 @@
 import { entries } from "../utils/data.js";
 
 const calculateDialisis = (entry) => {
-  const { inputs, classDisplay } = entries.dialisis;
+  const { inputs } = entries.dialisis;
   const { inputDrain, inputInfuse } = inputs;
 
   const lastEntry = entry.previousElementSibling;
   const lastInfuse = lastEntry.querySelector("." + inputInfuse.className);
   const nowDrain = entry.querySelector("." + inputDrain.className);
-  const screen = entry.querySelector("." + classDisplay);
 
   const infuse = lastInfuse.value;
   const drain = nowDrain.value;
 
-  const result = parseFloat(drain) - parseFloat(infuse);
+  const result = Math.round(parseFloat(drain) - parseFloat(infuse));
 
-  screen.textContent = result;
+  return result;
 };
 
 export default calculateDialisis;

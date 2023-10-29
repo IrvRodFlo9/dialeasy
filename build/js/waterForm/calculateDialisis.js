@@ -1,2 +1,2 @@
-import{entries}from"../utils/data.js";const calculateDialisis=e=>{const{inputs:s,classDisplay:t}=entries.dialisis,{inputDrain:a,inputInfuse:l}=s,i=e.previousElementSibling.querySelector("."+l.className),r=e.querySelector("."+a.className),u=e.querySelector("."+t),n=i.value,c=r.value,o=parseFloat(c)-parseFloat(n);u.textContent=o};export default calculateDialisis;
+import{entries}from"../utils/data.js";const calculateDialisis=e=>{const{inputs:a}=entries.dialisis,{inputDrain:s,inputInfuse:t}=a,i=e.previousElementSibling.querySelector("."+t.className),l=e.querySelector("."+s.className),r=i.value,u=l.value;return Math.round(parseFloat(u)-parseFloat(r))};export default calculateDialisis;
 //# sourceMappingURL=calculateDialisis.js.map

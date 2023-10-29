@@ -6,7 +6,7 @@ import calculateWater from "../waterForm/calculateWater.js";
 import unlockQuantity from "../ingestForm/unlockQuantity.js";
 import unlockDialisisEntries from "../waterForm/unlockDialisisEntries.js";
 import unlockCalculateWater from "../waterForm/unlockCalculateWater.js";
-import unlosckCalculateBtn from "../ingestForm/unlockCalculateBtn.js";
+import unlockCalculateBtn from "./unlockCalculateBtn.js";
 import generateFoods from "../ingestForm/generateFoods.js";
 import generateEntryResult from "./generateEntryResult.js";
 import generateResult from "./generateResult.js";
@@ -53,16 +53,20 @@ export const foods = {
 export const inputsFunctions = {
   inputQuantity: (entry) => {
     generateEntryResult("entryIngest", entry, calculateEquivalent);
-    unlosckCalculateBtn(entry);
+    unlockCalculateBtn(entry);
   },
   selectFood: (entry) => {
-    unlockQuantity(entry);
+    entry.querySelector(".input-quantity").disabled
+      ? unlockQuantity(entry)
+      : generateEntryResult("entryIngest", entry, calculateEquivalent);
   },
   inputInfuse: (entry) => {
-    calculateDialisis(entry);
+    generateEntryResult("entryDialisis", entry, calculateDialisis);
+    unlockCalculateBtn(entry);
   },
   inputDrain: (entry) => {
-    calculateDialisis(entry);
+    generateEntryResult("entryDialisis", entry, calculateDialisis);
+    unlockCalculateBtn(entry);
   },
   inputsWaterCalculator: (inputs, btnCalculate) => {
     unlockCalculateWater(inputs, btnCalculate);
@@ -184,10 +188,6 @@ export const entryDatas = {
         <div class="input">
           <label>Sale (Drena) mL</label>
           <input type="number" class="${entries.dialisis.inputs.inputDrain.className} min="0""/>
-        </div>
-        <div class="dialisis-delta entry-result">
-          <p>Diferencia</p>
-          <p><span class="${entries.dialisis.classDisplay}"></span> mL</p>
         </div>
       `;
       return html;
