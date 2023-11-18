@@ -1,5 +1,3 @@
-import { appendBtns } from "./data.js";
-
 const generateAppendBtns = (typeData, container) => {
   const { classMain, addText, classAdd, classCalculate } = typeData;
 
