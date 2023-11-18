@@ -1,2 +1,2 @@
-const generateFoods=e=>{let o="";for(let t in e)o+=`<option value="${t}">${e[t].optionName}</option>`;return o};export default generateFoods;
+const generateFoods=(e,o="other")=>{let t="";for(let n in e)e[n].type===o&&(t+=`<option value="${n}">${e[n].optionName}</option>`);return t};export default generateFoods;
 //# sourceMappingURL=generateFoods.js.map
