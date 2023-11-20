@@ -9,16 +9,11 @@
     align-items: center;
     h3 {
       width: 100%;
-      padding: 0.7rem;
+      padding: 1rem;
       text-align: center;
       color: v.$white;
       background-color: v.$red;
       margin-bottom: 1.5rem;
-
-      @include m.tablet {
-        border-radius: 0.5rem;
-        padding: 1rem;
-      }
     }
     p {
       font-size: 1.6rem;
