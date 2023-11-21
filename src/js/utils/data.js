@@ -11,6 +11,7 @@ import generateFoods from "../ingestForm/generateFoods.js";
 import generateEntryResult from "./generateEntryResult.js";
 import generateResult from "./generateResult.js";
 import generateWaterCalculator from "../waterForm/generateWaterCalculator.js";
+import potassiumContent from "../ingestForm/potassiumIngest.js";
 
 export const foods = {
   /*  Water  */
@@ -585,6 +586,7 @@ export const appendBtns = {
     resultType: "ingestResult",
     calculateFunction: (resultType, container) => {
       generateResult(resultType, container);
+      potassiumContent(container);
     },
   },
   appendDialisis: {
@@ -596,7 +598,6 @@ export const appendBtns = {
     resultType: "dialisisResult",
     calculateFunction: (resultType, container) => {
       const ultrafiltration = calculateUF();
-
       generateResult(resultType, container);
       generateWaterCalculator(container, ultrafiltration);
     },
