@@ -1,0 +1,2 @@
+import{appendBtns}from"./data.js";import generateAppendBtns from"./generateAppend.js";import generateEntry from"./generateEntry.js";const runAppendBtns=(e,t,n)=>{const{classAdd:r,classCalculate:p,entryToAdd:a,resultType:d,calculateFunction:s}=appendBtns[e];generateAppendBtns(appendBtns[e],t);const c=document.querySelector("."+r),o=document.querySelector("."+p);c.addEventListener("click",e=>{e.preventDefault(),generateEntry(a,n)}),o.addEventListener("click",e=>{e.preventDefault(),s(d,t)})};export default runAppendBtns;
+//# sourceMappingURL=runAppendBtns.js.map

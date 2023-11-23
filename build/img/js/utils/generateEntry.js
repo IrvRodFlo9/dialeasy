@@ -1,0 +1,2 @@
+import{entryDatas}from"./data.js";const generateEntry=(e,t,a=null)=>{const{extraClasses:n,html:s,append:r,data:d}=entryDatas[e],{inputs:l}=d,c=document.createElement("div");"entryInfuseYesterday"!==e&&c.classList.add("entry-data"),n.forEach(e=>{c.classList.add(e)}),c.innerHTML=s(),t.appendChild(c);for(let e in l){const{className:t,eventType:n,functionEvent:s}=l[e],r=c.querySelector("."+t);null!==a&&(r.disabled=a),r.addEventListener(n,()=>{s(c)})}};export default generateEntry;
+//# sourceMappingURL=generateEntry.js.map

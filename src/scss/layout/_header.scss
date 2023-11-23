@@ -14,28 +14,56 @@
   align-items: center;
 
   @include m.desktop {
-    height: 320px;
+    height: 340px;
   }
 
   h1 {
+    margin: 4rem 0;
     font-size: 6rem;
-    margin-bottom: 7.5rem;
 
     @include m.desktop {
       font-size: 8.5rem;
     }
   }
 
-  p {
+  p,
+  h2 {
     text-align: center;
     width: 100%;
-    background-color: v.$dark;
     color: v.$dLight;
     padding: 2rem 0;
     font-size: 1.6rem;
+  }
+
+  .blur {
+    width: 100%;
+    backdrop-filter: blur(5px);
+    h2 {
+      @include m.tablet {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  background-color: v.$dark;
+
+  p {
+    width: 100%;
 
     @include m.tablet {
-      font-size: 2rem;
+      font-size: 1.8rem;
+
+      &:hover {
+        background-color: darken(v.$dark, 10%);
+      }
     }
+  }
+
+  .nav-selected {
+    background-color: darken(v.$dark, 5%);
   }
 }

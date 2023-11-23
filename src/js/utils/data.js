@@ -12,6 +12,8 @@ import generateEntryResult from "./generateEntryResult.js";
 import generateResult from "./generateResult.js";
 import generateWaterCalculator from "../waterForm/generateWaterCalculator.js";
 import potassiumContent from "../ingestForm/potassiumIngest.js";
+import runIngestForm from "../ingestForm/main.js";
+import runWaterForm from "../waterForm/main.js";
 
 export const foods = {
   /*  Water  */
@@ -629,10 +631,21 @@ export const results = {
 };
 
 export const forms = {
-  dialisis: {
+  waterManual: {
+    title: "Agua por Ingerir",
+    subtitle: "Manual",
+    styleClass: "form-water",
+    initContent:
+      "<section class='initial-ask'><p>¿Ya calculó la ultrafiltración (UF) de 24 h?</p><div class='btns-yes-no'><button class='btn bg-green'>SI</button><button class='btn bg-red'>NO</button></div></section>",
     typeAppendBtns: "appendDialisis",
+    run: () => runWaterForm(),
   },
   ingest: {
+    title: "Ingesta de Agua",
+    subtitle: "Vía Oral",
+    styleClass: "form-ingest",
+    initContent: "<section class='ingest-container'></section>",
     typeAppendBtns: "appendIngest",
+    run: () => runIngestForm,
   },
 };

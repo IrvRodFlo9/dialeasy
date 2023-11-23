@@ -1,0 +1,2 @@
+import generateEntry from"../utils/generateEntry.js";import runAppendBtns from"../utils/runAppendBtns.js";const ingestForm=document.querySelector(".form-ingest"),ingestContainer=document.querySelector(".ingest-container"),runIngestForm=()=>{generateEntry("entryIngest",ingestContainer),runAppendBtns("appendIngest",ingestForm,ingestContainer)};export default runIngestForm;
+//# sourceMappingURL=main.js.map
